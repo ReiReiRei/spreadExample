@@ -20,7 +20,7 @@ class SetSuite extends FunSuite {
 
   }
 
-  test("trows rec exeption") {
+  test("throws rec exception") {
     assertThrows[SpreadSheet.CyclicRefException] {
       calSpreadSheet(createExprStorage("=A1,=A0"))
     }
