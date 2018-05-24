@@ -46,7 +46,7 @@ object SpreadSheet {
         case Ref(variable) =>
           if (chain.contains(variable))
             throw CyclicRefException(chain, variable)
-          eval(exprStorage(variable), variable :: chain)
+         for( e  <- eval(exprStorage(variable), variable :: chain)) yield e
         case Add(a, b) =>
           for { e1 <- eval(a, chain); e2 <- eval(b, chain) } yield e1 + e2
         case Sub(a, b) =>
